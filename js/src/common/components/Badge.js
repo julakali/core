@@ -32,4 +32,9 @@ export default class Badge extends Component {
 
     if (this.props.label) this.$().tooltip({ container: 'body' });
   }
+
+  onunload() {
+    // as the tooltip's container is body, it will not be removed automatically on page navigation
+    if (this.props.label) this.$().tooltip('hide');
+  }
 }
